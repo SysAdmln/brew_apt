@@ -50,6 +50,16 @@ upgrade(){
   brew upgrade && brew cu -a -c -f -y
 }
 
+moo(){
+  echo "         (__)
+           (oo)
+     /------\/
+    / |    ||
+   *  /\---/\
+      ~~   ~~
+  ...."Have you mooed today?"..."
+}
+
 case "$1" in
     help)
         help
@@ -97,6 +107,10 @@ case "$1" in
 	  upgrade)
 	      shift 
 	      upgrade
+	      ;;
+	  moo)
+	      shift 
+	      moo
 	      ;;
     *)
         help
