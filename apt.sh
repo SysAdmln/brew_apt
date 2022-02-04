@@ -1,3 +1,5 @@
+#!/bin/bash
+
 help(){
   cat <<__EOF__
   Использование: apt [параметры] команда
@@ -13,35 +15,88 @@ help(){
     autoremove - автоматически удалить все неиспользуемые пакеты
     update - обновить список доступных пакетов
     upgrade - обновить систему, устанавливая/обновляя пакеты
-    full-upgrade - обновить систему, удаляя/устанавливая/обновляя пакеты
-    edit-sources - редактировать файл с источниками пакетов
-    __EOF__
+__EOF__
 }
 
 list(){
-brew list
+  brew list
 }
 
+search(){
+  brew search $1
+}
+
+show(){
+  brew info $1
+}
+
+install(){
+  brew install $1
+}
+
+remove(){
+  brew uninstall $1
+}
+
+autoremove(){
+  brew cleanup
+}
+
+update(){
+  brew update
+}
+
+upgrade(){
+  brew upgrade && brew cu -a -c -f -y
+}
 
 case "$1" in
     help)
         help
         ;;
-    add)
-        shift
-        add "$@"
-        ;;
-    del)
-        shift
-        del "$@"
-        ;;
     list)
+    	  shift
+    	  list
+    	  ;;
+    search)
+        shift
+        search "$@"
+        ;;
+    show)
+        shift
+        show "$@"
+        ;;
+	  install)
 	      shift
-	      list
+	      install "$@"
 	      ;;
-	  port)
-	      shift
-	      port "$@"
+	  reinstall)
+	      shift 
+	      install "$@"
+	      ;;
+	  remove)
+	      shift 
+	      remove "$@"
+	      ;;
+	  purge)
+	      shift 
+	      remove "$@"
+	      ;;
+	  autoremove)
+	      shift 
+	      autoremove
+	      ;;
+	  clean)
+	      shift 
+	      autoremove
+	      ;;
+	  update)
+	      shift 
+	      update
+	      ;;
+	  upgrade)
+	      shift 
+	      upgrade
 	      ;;
     *)
         help
