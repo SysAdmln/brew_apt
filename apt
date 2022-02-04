@@ -51,13 +51,7 @@ upgrade(){
 }
 
 moo(){
-  echo "         (__)
-           (oo)
-     /------\/
-    / |    ||
-   *  /\---/\
-      ~~   ~~
-  ...."Have you mooed today?"..."
+  echo "ICAgICAgICAgKF9fKSAKICAgICAgICAgKG9vKSAKICAgLy0tLS0tLVwvIAogIC8gfCAgICB8fCAgIAogKiAgL1wtLS0vXCAKICAgIH5+ICAgfn4gICAKLi4uLiJIYXZlIHlvdSBtb29lZCB0b2RheT8iLi4uCg==" | base64 --decode
 }
 
 case "$1" in
