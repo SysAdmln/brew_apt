@@ -8,6 +8,7 @@ help(){
   Основные команды:
     list - показать список пакетов на основе указанных имён
     search - искать в описаниях пакетов
+    clean - удалить старые версии инсталяционных пакетов
     show - показать дополнительные данные о пакете
     install - установить пакеты
     reinstall - переустановить пакеты
@@ -24,6 +25,10 @@ list(){
 
 search(){
   brew search $1
+}
+
+clean(){
+  brew cleanup --prune=all -v
 }
 
 show(){
@@ -66,6 +71,10 @@ case "$1" in
         shift
         search "$@"
         ;;
+    clean)
+	shift
+	clean
+	;;
     show)
         shift
         show "$@"
