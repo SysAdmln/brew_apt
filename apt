@@ -60,62 +60,66 @@ moo(){
 }
 
 case "$1" in
-    help)
+	help)
         help
         ;;
-    list)
-    	  shift
-    	  list
+	list)
+	   shift
+	   list
     	  ;;
-    search)
+ 	search)
         shift
         search "$@"
         ;;
-    clean)
-	shift
-	clean
-	;;
-    show)
+	clean)
+	   shift
+	   clean
+	   ;;
+	clear)
+        shift
+        clean
+	   ;;
+	show)
         shift
         show "$@"
         ;;
-	  install)
-	      shift
-	      install "$@"
-	      ;;
-	  reinstall)
-	      shift 
-	      install "$@"
-	      ;;
-	  remove)
-	      shift 
-	      remove "$@"
-	      ;;
-	  purge)
-	      shift 
-	      remove "$@"
-	      ;;
-	  autoremove)
-	      shift 
-	      autoremove
-	      ;;
-	  clean)
-	      shift 
-	      autoremove
-	      ;;
-	  update)
-	      shift 
-	      update
-	      ;;
-	  upgrade)
-	      shift 
-	      upgrade
-	      ;;
-	  moo)
-	      shift 
-	      moo
-	      ;;
-    *)
+	install)
+	   shift
+	   install "$@"
+	   ;;
+	reinstall)
+	   shift 
+	   install "$@"
+	   ;;
+	remove)
+	   shift 
+	   remove "$@"
+	   ;;
+	purge)
+	   shift 
+	   remove "$@"
+	   ;;
+	autoremove)
+	   shift 
+	   autoremove
+	   ;;
+	clean)
+	   shift 
+	   autoremove
+	   ;;
+	update)
+	   shift 
+	   update
+	   ;;
+	upgrade)
+	   shift 
+	   upgrade
+	   ;;
+	moo)
+	   shift 
+	   moo
+	   ;;
+	*)
         help
         ;;
 esac
