@@ -83,6 +83,10 @@ case "$1" in
         shift
         show "$@"
         ;;
+	info)
+		shift
+		show "$@"
+		;;
 	install)
 	   shift
 	   install "$@"
