@@ -39,6 +39,10 @@ install(){
   brew install $1
 }
 
+reinstall(){
+  brew reinstall $1
+}
+
 remove(){
   brew uninstall $1
 }
@@ -61,35 +65,35 @@ moo(){
 
 case "$1" in
 	help)
-        help
-        ;;
+	   help
+	   ;;
 	list)
 	   shift
 	   list
     	  ;;
  	search)
-        shift
-        search "$@"
-        ;;
+	   shift
+	   search "$@"
+	   ;;
 	clean)
 	   shift
 	   clean
 	   ;;
 	clear)
-        shift
-        clean
+	   shift
+	   clean
 	   ;;
 	show)
-        shift
-        show "$@"
-        ;;
+	   shift
+	   show "$@"
+	   ;;
 	info)
-		shift
-		show "$@"
-		;;
+	   shift
+	   show "$@"
+	   ;;
 	install)
 	   shift
-	   install "$@"
+	   reinstall "$@"
 	   ;;
 	reinstall)
 	   shift 
@@ -124,6 +128,6 @@ case "$1" in
 	   moo
 	   ;;
 	*)
-        help
-        ;;
+	   help
+	   ;;
 esac
